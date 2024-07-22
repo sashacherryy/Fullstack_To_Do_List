@@ -1,0 +1,64 @@
+
+version: '3.8'
+
+services:
+  db:
+    container_name: postgres_container
+    image: postgres:15.2-alpine3.17
+    restart: always
+    hostname: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: todolist
+    volumes:
+      - ./volumes/db:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - netw
+    
+
+  pgadmin:
+    container_name: pgadmin4_container
+    image: dpage/pgadmin4
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    volumes:
+      - ./volumes/pgadmin:/var/lib/pgadmin
+    networks:
+      - netw
+
+  backend:
+    build: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+    container_name: backend
+    hostname: backend
+    ports:
+      - "3003:3003"
+    depends_on:
+      - db
+    restart: unless-stopped
+    environment: 
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: 123456
+      DATABASE_NAME: todolist
+    networks:
+      - netw
+
+networks:
+  netw:
+    driver: bridge
+
+volumes:
+  postgres_data:
