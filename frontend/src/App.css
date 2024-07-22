@@ -1,5 +1,6 @@
 html {
-  background-color: #837575;
+  background: rgb(170, 166, 255);
+  background: linear-gradient(45deg, rgb(128, 126, 184) 0%, rgb(166, 166, 255) 35%, rgb(133, 174, 182) 100%);
 }
 
 .App {
@@ -142,4 +143,162 @@ input:focus {
 
 input::placeholder {
   color: white;
+}
+
+@media only screen and (max-width: 768px) {
+  html {
+    background: rgb(71, 66, 163);
+    background: linear-gradient(45deg, rgba(71, 66, 163, 1) 0%, rgba(124, 124, 224, 1) 35%, rgba(33, 133, 153, 1) 100%);
+  }
+  
+  .App {
+    display: flex;
+    justify-content: center;
+    margin: 25px;
+    font-size: 32px;
+    h1{
+      padding: 2%;
+
+    }
+  }
+  
+  .App-header {
+    background: none;
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: 0 0 0;
+  }
+  
+  .delete-icon,
+  .cancel-icon,
+  .css-checkbox {
+    width: 35px;
+    height: 35px;
+    cursor: none;
+    transition: none;
+  }
+  
+  .delete-icon:hover,
+  .cancel-icon:hover,
+  .css-checkbox:hover {
+    opacity: 0;
+    transform: none; 
+    background-color: none;
+    border-radius: 0;
+  }
+  
+  .icons {
+
+    width: 130px;
+    gap: 10px;
+  }
+  
+  .icon-wrapper {
+    position: relative;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .send {
+    padding-left: 15%;
+    width: 75%;
+    margin: 15px 0px 15px 0px;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  .item {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  
+  .css-checkbox {
+    border: none;
+    margin-right: 10px;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+  }
+  
+  .split {
+    border-bottom: 2px solid #000;
+    width: 95%;
+    margin: 0px 2%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 26px;
+    margin: 15px 0px;
+  }
+  
+  .counterDoneTask {
+    color: #69d43f;
+  }
+  
+  .counterDeletedTask {
+    color: #a42222;
+  }
+  
+  .wrapper {
+    width: 370px;
+    max-width: 100%;
+    position: relative;
+  }
+  
+  .wrapper input {
+    background: #427aa1;
+    border: 2px solid #427aa1;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+  }
+  
+  .wrapper button {
+    position: absolute;
+    top: 10%;
+    right: 0px;
+    height: 80%;
+    background: #ebf2fa;
+    border-radius: 50px;
+    aspect-ratio: 1;
+  }
+  
+  button {
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  input {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  input:focus {
+    outline: 3px solid #064789;
+  }
+  
+  input::placeholder {
+    color: white;
+  }
+  
+.listofItem{
+  padding: 2%;
+}
 }

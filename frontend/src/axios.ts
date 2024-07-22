@@ -23,9 +23,6 @@ export  async function getTask(): Promise<Task[]> {
       },
     );
 
-    console.log(JSON.stringify(response.data, null, 4));
-    console.log('response status is: ', response.status);
-
     if (response.data && Array.isArray(response.data)) {
       return response.data;
     } else {
